@@ -9,3 +9,9 @@ foreach ($process in Get-Process) {
     }
 
 $process_array | Where {$_.Name.Substring(0,1) -cLike "C"} | Sort id -Descending | Select Id, Name, Handles | FT  
+
+<#
+This would also work:
+$c =@($process_array | Where-Object Name -like c* | Sort id -Descending | format-table -property name, id, Handles)
+$c 
+#>
